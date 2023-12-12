@@ -71,6 +71,7 @@ const deleteStudent = async (req, res) => {
 const signInTeacher = async (req, res) => {
     try {
         // Call the signIn function from the teacherService module
+        console.log(req.body);
         const result = await teacherService.signIn(req);
 
         // Check the result and send appropriate status codes
