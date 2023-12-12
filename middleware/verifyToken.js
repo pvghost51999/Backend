@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 
 // Middleware function to verify the authenticity of a token
 const verifyToken = async (req, res, next) => {
+    const SECRET_KEY ="Prashant_verma_key2432532"
     try {
         // Extract the token from the 'Authorization' header
         const token = req.header('Authorization');
@@ -13,7 +14,7 @@ const verifyToken = async (req, res, next) => {
         }
 
         // Verify the token using the provided secret key
-        jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+        jwt.verify(token, SECRET_KEY, (err, decoded) => {
             // If there's an error in verification, return an unauthorized response
             if (err) {
                 res.status(401).json({ message: "Unauthorized token" });
