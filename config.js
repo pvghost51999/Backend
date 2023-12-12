@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 // Set the name of the database
-const database = "ResultManagement";
+// const database = "ResultManagement";
 
 // Construct the MongoDB connection URL using the environment variable
-const url = process.env.MONGODB_URL + database;
+const url = process.env.MONGODB_URL;
 
 // Connect to the MongoDB database
 mongoose.connect(url).then(() => {
