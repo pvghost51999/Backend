@@ -7,7 +7,7 @@ teacherRouter.post("/login",teacherController.signInTeacher);
 
 teacherRouter.post("/signup",teacherController.teacherSignUp);
 teacherRouter.post("/result/add",verifyToken,teacherController.addStudent);
-teacherRouter.get("/result",verifyToken,teacherController.getAllStudents);
+teacherRouter.get("/result",teacherController.getAllStudents);
 teacherRouter.patch("/result/:rollNo",verifyToken,teacherController.editStudent);
 teacherRouter.delete("/result/:rollNo",verifyToken,teacherController.deleteStudent);
 
