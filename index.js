@@ -28,10 +28,10 @@ app.use('/teacher',teacherRouter);
 // Use the studentRouter for routes starting with '/student'
 app.use('/student',studentRouter);
 
-port=process.env.PORT;
+// port=process.env.PORT;
 
-app.listen(port,()=>{
+// app.listen(port,()=>{
 
-    console.log("server started at 6060");
-})
+//     console.log("server started at 6060");
+// })
 
