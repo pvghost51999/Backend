@@ -5,8 +5,9 @@ const services = require('../services/studentService');
 // Function to get all students
 const getAllStudents = async (req, res) => {
     // Retrieve all students using the services module
+    console.log(req.body,"controller");
     const data = await services.getAllStudents();
-    const user = req.user; // Assuming user information is stored in req.user
+    // const user = req.user; // Assuming user information is stored in req.user
     res.status(200).json(data);
 }
 

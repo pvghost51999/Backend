@@ -5,6 +5,8 @@ const jwt = require('../util/jwtToken');
 const getAllStudents = async () => {
     // Retrieve all students from the database and sort them by Name in ascending order.
     const data = await Students.find({}).sort({'Name': 1});
+
+    console.log(data,"student Service");
     return data;
 }
 
