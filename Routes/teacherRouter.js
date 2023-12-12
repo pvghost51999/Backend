@@ -3,6 +3,9 @@ const verifyToken=require("../middleware/verifyToken");
 const teacherRouter=express.Router();
 const teacherController=require('../controller/teacherController');
 
+
+console.log("here");
+
 teacherRouter.post("/login",teacherController.signInTeacher);
 
 teacherRouter.post("/signup",teacherController.teacherSignUp);
