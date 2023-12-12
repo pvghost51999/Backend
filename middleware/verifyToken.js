@@ -7,7 +7,7 @@ const verifyToken = async (req, res, next) => {
     try {
         // Extract the token from the 'Authorization' header
         const token = req.header('Authorization');
-        console.log(token);
+        // console.log(token);
         // If no token is provided, return an unauthorized response
         if (!token) {
             res.status(401).json({ message: "Unauthorized user" });
