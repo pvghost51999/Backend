@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const url = process.env.MONGODB_URL;
 
 // Connect to the MongoDB database
-mongoose.connect(url).then(() => {
+mongoose.connect("mongodb+srv://pvghost51999:Demo123@cluster0.th5vlin.mongodb.net/ResultManagement").then(() => {
     // Log a message indicating a successful database connection
     console.log("Database connection is established");
 }).catch((err) => {
