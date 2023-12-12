@@ -12,12 +12,12 @@ const bodyParser=require('body-parser')
 const app=express();
 
 
-app.use(express.static(path.join(__dirname,"/build")));
+// app.use(express.static(path.join(__dirname,"/build")));
 
 
-app.get("*",(req,res)=>{
-res.sendFile(path.join(__dirname,"/build/index.html"));
-})
+// app.get("*",(req,res)=>{
+// res.sendFile(path.join(__dirname,"/build/index.html"));
+// })
 
 app.use(cors());
 app.use(express.json());
@@ -28,10 +28,10 @@ app.use('/teacher',teacherRouter);
 // Use the studentRouter for routes starting with '/student'
 app.use('/student',studentRouter);
 
-// port=process.env.PORT;
+port=process.env.PORT;
 
-// app.listen(port,()=>{
+app.listen(port,()=>{
 
-//     console.log("server started at 6060");
-// })
+    console.log("server started at 6060");
+})
 
