@@ -13,6 +13,10 @@ const app = express();
 // Serve static files from the 'build' directory
 app.use(express.static(path.join(__dirname, '/build')));
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/build/index.html'));
+});
+
 // Use CORS middleware
 app.use(cors());
 
@@ -27,9 +31,7 @@ app.use('/teacher', teacherRouter);
 app.use('/student', studentRouter);
 
 // Wildcard route to serve the React app for all other requests
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/build/index.html'));
-});
+
 
 // Configure the port to use the environment variable or default to 6060
 const port = process.env.PORT || 6060;
