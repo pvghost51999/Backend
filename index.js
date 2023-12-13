@@ -1,37 +1,40 @@
-const express=require('express');
-
-const teacherRouter=require('./Routes/teacherRouter');
-const studentRouter=require('./Routes/studentRouter');
-const path = require("path");
-const cors=require('cors');
+const express = require('express');
+const teacherRouter = require('./Routes/teacherRouter');
+const studentRouter = require('./Routes/studentRouter');
+const path = require('path');
+const cors = require('cors');
 require('dotenv').config();
-require('./config')
+require('./config');
 
-const flash=require('express-flash');
-const bodyParser=require('body-parser')
-const app=express();
+const flash = require('express-flash');
+const bodyParser = require('body-parser');
+const app = express();
 
+// Serve static files from the 'build' directory
+app.use(express.static(path.join(__dirname, '/build')));
 
-app.use(express.static(path.join(__dirname,"/build")));
-
-
-app.get("*",(req,res)=>{
-res.sendFile(path.join(__dirname,"/build/index.html"));
-}) 
-
+// Use CORS middleware
 app.use(cors());
+
+// Parse JSON requests
 app.use(express.json());
 app.use(bodyParser.json());
+
 // Use the teacherRouter for routes starting with '/teacher'
-app.use('/teacher',teacherRouter);
+app.use('/teacher', teacherRouter);
 
 // Use the studentRouter for routes starting with '/student'
-app.use('/student',studentRouter);
+app.use('/student', studentRouter);
 
-// port=process.env.PORT;
+// Wildcard route to serve the React app for all other requests
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/build/index.html'));
+});
 
-// app.listen(port,()=>{
+// Configure the port to use the environment variable or default to 6060
+const port = process.env.PORT || 6060;
 
-//     console.log("server started at 6060");
-// })
-
+// Start the server
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
